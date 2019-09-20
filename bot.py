@@ -103,6 +103,8 @@ def results():
     req = request.get_json(force=True)
     action = req.get('queryResult').get('action')
     parametros = req.get('queryResult').get('parameters')
+    msg = req.get('queryResult').get('queryText')
+    
     # fetch action from json
 
     if action == 'imc':
@@ -138,10 +140,15 @@ def results():
         num1 = parametros.get('doseamoxicilina')
         calculo = amox(num1)
         return {'fulfillmentText': calculo}
+
+    elif action == 'FALLBACK':
+        num1 = parametros.get('doseamoxicilina')
+        calculo = amox(num1)
+        return {'fulfillmentText': calculo}
         
         
     else:
-        return {'fulfillmentText': 'Não encontrei nada sobre esse assunto. \n Digite *Lista* para iniciar'}
+        return {'fulfillmentText': 'Não encontrei nada sobre esse assunto.'}
 
     # return a fulfillment response
     #return {'fulfillmentText': 'This is a response from webhook.'}
