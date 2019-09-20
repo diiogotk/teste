@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe 1443'
+    return 'PrescrevaMe 1707'
            
         
 # function for responses
@@ -93,6 +93,7 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     })
 
 
+
 def rocefin(peso):
     peso = peso
     doseamoxx = peso * 80 / 2
@@ -168,9 +169,10 @@ def results():
         return {'fulfillmentText': calculo}
     
     elif action == 'FALLBACK':
-        txt2 = msg.lower()
-        calculo = bula(txt2)
+        txtobula = msg
+        calculo = bula(txtobula)
         return {'fulfillmentText': calculo}
+        print('Fallback' + txtobula)
         
         
     else:
