@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe 1441'
+    return 'PrescrevaMe 1443'
            
         
 # function for responses
@@ -73,7 +73,7 @@ def bula(txtobula):
             vr1 = p['website']
             vr2 = p['from']
             vr3 = p['name']
-            bulaR = vr3 + vr1 + vr2
+            bulaR = vr3+'\n' + vr1+'\n' + vr2
             return(bulaR)
 
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
