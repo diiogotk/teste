@@ -73,7 +73,7 @@ def bula(txtobula):
             vr1 = p['website']
             vr2 = p['from']
             vr3 = p['name']
-            bulaR = 'Bula de ' +vr3+ '\n' ': Indicação: \n' + vr1 + '\n Posologia: ' + vr2
+            bulaR = 'Título: ' +vr3+'\nIndicação: ' + vr1 + '\nPosologia: ' + vr2
             return(bulaR)
 
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
