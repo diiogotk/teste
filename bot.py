@@ -113,16 +113,17 @@ def results():
 
     elif action == 'bula':
         txtobula = parametros.get('txtbula')
-        doseb = bula(txtobula)
+        txt2 = txtbula.lower()
+        doseb = bula(txt2)
         return {'fulfillmentText': doseb}
 
     elif action == 'addbula':
         txtobula = parametros.get('nome')
         txtobula2 = parametros.get('indicacao')
         txtobula3 = parametros.get('apresentacao')
-        tg1 = parametros.get('tg1')
-        tg2 = parametros.get('tg2')
-        tg3 = parametros.get('tg3')
+        tg1 = parametros.get('tg1').lower()
+        tg2 = parametros.get('tg2').lower()
+        tg3 = parametros.get('tg3').lower()
         dosez = addbula(txtobula, txtobula3, txtobula2, tg1, tg2, tg3)
         return {'fulfillmentText': dosez}
 
