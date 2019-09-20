@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe 17707'
+    return 'PrescrevaMe tag'
            
         
 # function for responses
@@ -69,11 +69,11 @@ def bula(txtobula):
         tag01 = p['tag1']
         tag02 = p['tag2']
         tag03 = p['tag3']
-        if txtobula == tag01 or txtobula == tag02 or txtobula == tag03:
+        if txtobula.lower() == tag01.lower() or txtobula.lower() == tag02.lower() or txtobula.lower() == tag03.lower():
             vr1 = p['website']
             vr2 = p['from']
             vr3 = p['name']
-            bulaR = vr3+'\n' + vr1+'\n' + vr2
+            bulaR = str(vr3)+'\n' + str(vr1)+'\n' + str(vr2)
             return(bulaR)
 
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
@@ -140,16 +140,14 @@ def results():
         txtobula = parametros.get('nome')
         txtobula2 = parametros.get('indicacao')
         txtobula3 = parametros.get('apresentacao')
-        tg1 = parametros.get('tg1')
-        tg2 = parametros.get('tg2')
-        tg3 = parametros.get('tg3')
+        tg1 = parametros.get('tg1').lower()
+        tg2 = parametros.get('tg2').lower()
+        tg3 = parametros.get('tg3').lower()
 
-        tagg1 = tg1
-        tagg2 = tg2
-        tagg3 = tg3
+        tagg1 = tg1.lower()
+        tagg2 = tg2.lower()
+        tagg3 = tg3.lower()
         dosez = addbula(str(txtobula), str(txtobula3), str(txtobula2), str(tagg1), str(tagg2), tagg3)
-        with open('data.txt', 'w') as outfile:
-            json.dump(data, outfile)            
         return {'fulfillmentText': dosez}
 
     elif action == 'calculadora':
@@ -178,7 +176,7 @@ def results():
         txtobula = msg
         calculo = bula(txtobula)
         return {'fulfillmentText': calculo}
-        print('Fallback' + txtobula)
+        print('Fallback')
         
         
     else:
