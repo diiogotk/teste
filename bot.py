@@ -1,4 +1,6 @@
 import json
+import requests  
+import os
 with open('data.txt') as json_file:
     data = json.load(json_file)
 from flask import Flask, request, make_response, jsonify
