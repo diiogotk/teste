@@ -92,7 +92,18 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
         'from': veio
     })
 
-   
+#IMC CALCULO#
+def bd(num1):
+    for p in data['people']:
+        tag01 = p['tag1']
+        tag02 = p['tag2']
+        tag03 = p['tag3']
+        if num1 == tag01 or num1 == tag02 or num1 == tag03:
+            vr1 = p['website']
+            vr2 = p['from']
+            vr3 = p['name']
+            bulaR = 'Bula de ' +vr3+ '\n' ': Indicação: \n' + vr1 + '\n Posologia: ' + vr2
+            return(bulaR)   
 
 
 
@@ -142,8 +153,8 @@ def results():
         return {'fulfillmentText': calculo}
 
     elif action == 'FALLBACK':
-        num1 = parametros.get('doseamoxicilina')
-        calculo = amox(num1)
+        num1 = msg
+        calculo = bd(num1)
         return {'fulfillmentText': calculo}
         
         
