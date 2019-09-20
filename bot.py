@@ -3,6 +3,8 @@ import requests
 import os
 with open('data.txt') as json_file:
     data = json.load(json_file)
+with open('data2.txt') as json_file:
+    dataB = json.load(json_file)
 from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
@@ -83,7 +85,7 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     cod = tg1.lower()
     codb = tg2.lower()
     codc = tg3.lower()
-    data['doencas'].append({
+    data['people'].append({
         'tag1': cod,
         'tag2': codb,
         'tag3': codc,
@@ -92,18 +94,7 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
         'from': veio
     })
 
-#IMC CALCULO#
-def bd(num1):
-    for p in data['people']:
-        tag01 = p['tag1']
-        tag02 = p['tag2']
-        tag03 = p['tag3']
-        if num1 == tag01 or num1 == tag02 or num1 == tag03:
-            vr1 = p['website']
-            vr2 = p['from']
-            vr3 = p['name']
-            bulaR = 'Bula de ' +vr3+ '\n' ': Indicação: \n' + vr1 + '\n Posologia: ' + vr2
-            return(bulaR)   
+
 
 
 
@@ -153,8 +144,8 @@ def results():
         return {'fulfillmentText': calculo}
 
     elif action == 'FALLBACK':
-        num1 = msg.lower()
-        calculo = bd(num1)
+        num1 = parametros.get('doseamoxicilina')
+        calculo = amox(num1)
         return {'fulfillmentText': calculo}
         
         
