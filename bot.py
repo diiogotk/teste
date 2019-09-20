@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe 1808'
+    return 'PrescrevaMe 19'
            
         
 # function for responses
