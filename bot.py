@@ -148,7 +148,3 @@ def webhook():
     # return response
     return make_response(jsonify(results()))
 
-# run the app
-# run the app
-if __name__ == '__main__':
-   app.run()
