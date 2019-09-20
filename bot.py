@@ -1,10 +1,11 @@
+import json
+with open('data.txt') as json_file:
+    data = json.load(json_file)
 from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    import json
-with open('data.txt') as json_file:
-    data = json.load(json_file)
+    return 'Hello World!'
            
         
 # function for responses
