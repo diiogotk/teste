@@ -144,13 +144,13 @@ def results():
         txtobula = parametros.get('nome')
         txtobula2 = parametros.get('indicacao')
         txtobula3 = parametros.get('apresentacao')
-        tg1 = parametros.get('tg1').lower()
-        tg2 = parametros.get('tg2').lower()
-        tg3 = parametros.get('tg3').lower()
+        tg1 = parametros.get('tg1')
+        tg2 = parametros.get('tg2')
+        tg3 = parametros.get('tg3')
 
-        tagg1 = tg1.lower()
-        tagg2 = tg2.lower()
-        tagg3 = tg3.lower()
+        tagg1 = tg1
+        tagg2 = tg2
+        tagg3 = tg3
         dosez = addbula(str(txtobula), str(txtobula3), str(txtobula2), str(tagg1), str(tagg2), tagg3)
         return {'fulfillmentText': dosez}
 
