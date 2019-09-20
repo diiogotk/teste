@@ -133,7 +133,7 @@ def results():
         calculo = calculadora(num1, num2, sinal)
         return {'fulfillmentText': calculo}
 
-    elif action == 'amoxicilina':
+    elif action == 'calcamox':
         num1 = parametros.get('doseamoxicilina')
         calculo = amox(num1)
         return {'fulfillmentText': calculo}
