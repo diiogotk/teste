@@ -5,7 +5,7 @@ def index():
     import json
 with open('data.txt') as json_file:
     data = json.load(json_file)
-    return 'Hello World!'   
+        return 'Hello World!'   
         
 # function for responses
 def calculadora(num1, num2, sinal):
