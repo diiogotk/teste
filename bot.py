@@ -83,7 +83,7 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     cod = tg1.lower()
     codb = tg2.lower()
     codc = tg3.lower()
-    data['people'].append({
+    data['doencas'].append({
         'tag1': cod,
         'tag2': codb,
         'tag3': codc,
