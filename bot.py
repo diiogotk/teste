@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe 19'
+    return 'PrescrevaMe 191842'
            
         
 # function for responses
@@ -73,16 +73,17 @@ def bula(txtobula):
             vr1 = p['website']
             vr2 = p['from']
             vr3 = p['name']
-            bulaR = str(vr3)+'\n' + str(vr1)+'\n' + str(vr2)
+            bulaR = vr3+'\n' + vr1+'\n' + vr2
             return(bulaR)
 
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
-    name = nome
-    website = indicacao
-    veio = apresentacao
-    cod = tg1
-    codb = tg2
-    codc = tg3
+    name = ''.join(nome)
+    website = ''.join(indicacao)
+    veio = ''.join(apresentacao)
+    cod = ''.join(tg1)
+    codb = ''.join(tg2)
+    codc = ''.join(tg3)
+
     data['people'].append({
         'tag1': cod,
         'tag2': codb,
@@ -95,7 +96,6 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
         json.dump(data, outfile)
         return('OK')
     
-
 
 
 def rocefin(peso):
@@ -151,7 +151,7 @@ def results():
         tagg1 = tg1
         tagg2 = tg2
         tagg3 = tg3
-        dosez = addbula(str(txtobula), str(txtobula3), str(txtobula2), str(tagg1), str(tagg2), tagg3)
+        dosez = addbula(txtobula, txtobula3, txtobula2, tagg1, tagg2, tagg3)
         return {'fulfillmentText': dosez}
 
     elif action == 'calculadora':
