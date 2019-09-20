@@ -141,7 +141,7 @@ def results():
         
         
     else:
-        return {'fulfillmentText': 'This is a response from webhook.2'}
+        return {'fulfillmentText': 'Não encontrei nada sobre esse assunto. \n Digite *Lista* para iniciar'}
 
     # return a fulfillment response
     #return {'fulfillmentText': 'This is a response from webhook.'}
