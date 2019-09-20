@@ -93,9 +93,25 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     })
 
 
+def rocefin(peso):
+    peso = peso
+    doseamoxx = peso * 80 / 2
+    doseamox = round(doseamoxx, 1)
+    laudo = 'Dose de Ceftriaxona para ' + str(peso) + 'kg \n' + str(doseamox) + ' mg a cada 12 horas'
+    if peso < 40:
+        return(laudo)
+    else:
+        return('Erro funcao Rocefin')
 
-
-
+def ibuprofenoxarope(peso):
+    peso = peso
+    doseamoxx = peso / 2
+    doseamox = round(doseamoxx, 1)
+    laudo = 'Dose de Ibuprofeno Xarope para *' + str(peso) + '* kg \n' + str(doseamox) + ' mL a cada 6 horas\nAPRESENTAÇÃO: Suspensão oral gotas 100 mg/ml\n*Crianças*\nNos quadros febris, a dose usual recomendada para crianças a partir dos 6 meses de idade é de 5 a 10 mg/kg de peso corpóreo, a cada 6 a 8 horas.'
+    if peso < 40:
+        return(laudo)
+    else:
+        return('Erro funcao ibuprofenoxarope')
 
 
 def results():
@@ -139,6 +155,16 @@ def results():
     elif action == 'calcamox':
         num1 = parametros.get('doseamoxicilina')
         calculo = amox(num1)
+        return {'fulfillmentText': calculo}
+
+    elif action == 'rocefin':
+        peso = parametros.get('pesoceft')
+        calculo = crockoft(peso)
+        return {'fulfillmentText': calculo}
+
+    elif action == 'ibuprofenoxarope': ##IBU XAROPE##
+        peso = parametros.get('pesoibux')
+        calculo = crockoft(peso)
         return {'fulfillmentText': calculo}
 
     elif action == 'FALLBACK':
