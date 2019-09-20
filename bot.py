@@ -134,7 +134,7 @@ def results():
         return {'fulfillmentText': calculo}
 
     elif action == 'amoxicilina':
-        num1 = parametros.get('pesoamox')
+        num1 = parametros.get('doseamoxicilina')
         calculo = amox(num1)
         return {'fulfillmentText': calculo}
         
