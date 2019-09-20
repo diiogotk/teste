@@ -113,7 +113,7 @@ def results():
 
     elif action == 'bula':
         txtobula = parametros.get('txtbula')
-        txt2 = txtbula.lower()
+        txt2 = txtobula.lower()
         doseb = bula(txt2)
         return {'fulfillmentText': doseb}
 
