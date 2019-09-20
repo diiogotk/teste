@@ -80,9 +80,9 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     name = nome
     website = indicacao
     veio = apresentacao
-    cod = tg1.lower()
-    codb = tg2.lower()
-    codc = tg3.lower()
+    cod = tg1
+    codb = tg2
+    codc = tg3
     data['people'].append({
         'tag1': cod,
         'tag2': codb,
