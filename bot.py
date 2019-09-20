@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe tag'
+    return 'PrescrevaMe 1808'
            
         
 # function for responses
@@ -91,6 +91,10 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
         'website': website,
         'from': veio
     })
+    with open('data.txt', 'w') as outfile:
+        json.dump(data, outfile)
+        return('OK')
+    
 
 
 
