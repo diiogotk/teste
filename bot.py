@@ -144,10 +144,12 @@ def results():
         tg2 = parametros.get('tg2')
         tg3 = parametros.get('tg3')
 
-        tagg1 = tg1.lower()
-        tagg2 = tg2.lower()
-        tagg3 = tg3.lower()
+        tagg1 = tg1
+        tagg2 = tg2
+        tagg3 = tg3
         dosez = addbula(str(txtobula), str(txtobula3), str(txtobula2), str(tagg1), str(tagg2), tagg3)
+        with open('data.txt', 'w') as outfile:
+            json.dump(data, outfile)            
         return {'fulfillmentText': dosez}
 
     elif action == 'calculadora':
