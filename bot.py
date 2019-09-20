@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe 1407'
+    return 'PrescrevaMe 17707'
            
         
 # function for responses
@@ -143,7 +143,11 @@ def results():
         tg1 = parametros.get('tg1').lower()
         tg2 = parametros.get('tg2').lower()
         tg3 = parametros.get('tg3').lower()
-        dosez = addbula(str(txtobula), str(txtobula3), str(txtobula2), str(tg1), str(tg2), tg3)
+
+        tagg1 = tg1.lower()
+        tagg2 = tg2.lower()
+        tagg3 = tg3.lower()
+        dosez = addbula(str(txtobula), str(txtobula3), str(txtobula2), str(tagg1), str(tagg2), tagg3)
         return {'fulfillmentText': dosez}
 
     elif action == 'calculadora':
