@@ -153,7 +153,7 @@ def results():
         return {'fulfillmentText': calculo}
 
     elif action == 'FALLBACK':
-        num1 = msg
+        num1 = msg.lower()
         calculo = bd(num1)
         return {'fulfillmentText': calculo}
         
