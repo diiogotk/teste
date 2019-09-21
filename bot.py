@@ -69,12 +69,11 @@ def bula(txtobula):
         tag01 = p['tag1']
         tag02 = p['tag2']
         tag03 = p['tag3']
-        if 1==1:
-            vr1 = p['website']
-            vr2 = p['from']
-            vr3 = p['name']
-            bulaR = vr3+'\n' + vr1+'\n' + vr2
-            return(bulaR)
+        vr1 = p['website']
+        vr2 = p['from']
+        vr3 = p['name']
+        bulaR = vr3+'\n' + vr1+'\n' + vr2 + '\n-----''\n-------'
+        return(bulaR)
 
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     name = ''.join(nome)
