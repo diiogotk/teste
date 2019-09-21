@@ -7,7 +7,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'PrescrevaMe asasdk'
+    return 'Hello World!'
            
         
 # function for responses
@@ -69,20 +69,20 @@ def bula(txtobula):
         tag01 = p['tag1']
         tag02 = p['tag2']
         tag03 = p['tag3']
-        vr1 = p['website']
-        vr2 = p['from']
-        vr3 = p['name']
-        bulaR = vr3+'\n' + vr1+'\n' + vr2 + '\n-----''\n-------'
-        return(vr3+'\n' + vr1+'\n' + vr2)
+        if txtobula == tag01 or txtobula == tag02 or txtobula == tag03:
+            vr1 = p['website']
+            vr2 = p['from']
+            vr3 = p['name']
+            bulaR = 'Bula de ' +vr3+ '\n' ': Indicação: \n' + vr1 + '\n Posologia: ' + vr2
+            return(bulaR)
 
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
-    name = ''.join(nome)
-    website = ''.join(indicacao)
-    veio = ''.join(apresentacao)
-    cod = ''.join(tg1)
-    codb = ''.join(tg2)
-    codc = ''.join(tg3)
-
+    name = nome
+    website = indicacao
+    veio = apresentacao
+    cod = tg1.lower()
+    codb = tg2.lower()
+    codc = tg3.lower()
     data['people'].append({
         'tag1': cod,
         'tag2': codb,
@@ -91,10 +91,6 @@ def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
         'website': website,
         'from': veio
     })
-    with open('data.txt', 'w') as outfile:
-        json.dump(data, outfile)
-        return('OK')
-    
 
 
 def rocefin(peso):
@@ -143,14 +139,10 @@ def results():
         txtobula = parametros.get('nome')
         txtobula2 = parametros.get('indicacao')
         txtobula3 = parametros.get('apresentacao')
-        tg1 = parametros.get('tg1')
-        tg2 = parametros.get('tg2')
-        tg3 = parametros.get('tg3')
-
-        tagg1 = tg1
-        tagg2 = tg2
-        tagg3 = tg3
-        dosez = addbula(txtobula, txtobula3, txtobula2, tagg1, tagg2, tagg3)
+        tg1 = parametros.get('tg1').lower()
+        tg2 = parametros.get('tg2').lower()
+        tg3 = parametros.get('tg3').lower()
+        dosez = addbula(txtobula, txtobula3, txtobula2, tg1, tg2, tg3)
         return {'fulfillmentText': dosez}
 
     elif action == 'calculadora':
@@ -174,12 +166,11 @@ def results():
         peso = parametros.get('pesoibux')
         calculo = crockoft(peso)
         return {'fulfillmentText': calculo}
-    
+
     elif action == 'FALLBACK':
-        txtobula = msg
-        calculo = bula(txtobula)
+        num1 = parametros.get('doseamoxicilina')
+        calculo = amox(num1)
         return {'fulfillmentText': calculo}
-        print('Fallback')
         
         
     else:
