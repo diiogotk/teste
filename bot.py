@@ -69,7 +69,7 @@ def bula(txtobula):
         tag01 = p['tag1']
         tag02 = p['tag2']
         tag03 = p['tag3']
-        if txtobula.lower() == tag01.lower() or txtobula.lower() == tag02.lower() or txtobula.lower() == tag03.lower():
+        if 1==1:
             vr1 = p['website']
             vr2 = p['from']
             vr3 = p['name']
