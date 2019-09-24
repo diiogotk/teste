@@ -169,7 +169,7 @@ def results():
 
     elif action == 'FALLBACK':
         num1 = parametros.get('doseamoxicilina')
-        calculo = bula(txtobula)
+        calculo = bula(msg)
         return {'fulfillmentText': calculo}
         
         
