@@ -230,7 +230,7 @@ def results():
 
     elif action == 'bulaTodos': ##IBU XAROPE##
         peso = "Diogo"
-        calculo = crockoft(peso)
+        calculo = bulaTodos(peso)
         return {'fulfillmentText': calculo}
 
     elif action == 'FALLBACK':
