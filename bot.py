@@ -100,7 +100,7 @@ def bula(txtobula):
           #print(resultado)
           
         else:
-            return('Erro na nova Bula')
+            return('Erro na nova Bula!!!')
 
 #IMC CALCULO#
 #def bula(txtobula):
