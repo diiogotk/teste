@@ -72,7 +72,9 @@ def imc(peso, altura):
 
 
 def bula(txtobula):
+    txtobula = txtobula.lower()
     for p in datab['people']:
+        
         #print('Name: ' + p['tags'])
         nome = p['name'].lower()
         slug = p['slug'].lower()
@@ -89,7 +91,7 @@ def bula(txtobula):
         doseAdulto = doseAdulto.replace('**','*')
         doseAdulto = doseAdulto.replace('* ','')
 
-        if Dqz == nome or Dqz == slug or Dqz == titulo2:
+        if txtobula == nome or txtobula == slug or txtobula == titulo2:
           resultado = titulo2.capitalize() + '\n' + indicacao+'\n' + doseAdulto
           return(resultado)
           #print(resultado)
