@@ -72,7 +72,7 @@ def imc(peso, altura):
 
 
 def bula(txtobula):
-    txtobula = txtobula.lower()
+    txtobula = txtobula
     for p in datab['people']:
         nome = p['name'].lower()
         slug = p['slug'].lower()
