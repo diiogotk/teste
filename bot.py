@@ -91,8 +91,8 @@ def bula(txtobula):
 
         if txtobula == nome or txtobula == slug or txtobula == titulo2:
           tit = 'Exibindo bula de *' + titulo2.capitalize()+'*\n'
-          indica = '*Indicação*:' + indicacao+'\n'
-          doseA = '*Dose no adulto*:' +doseAdulto+'\n'
+          indica = '*Indicação*:\n' + indicacao+'\n'
+          doseA = '*Dose no adulto*:\n' +doseAdulto
           
           resultado = tit + indica + doseA
 
