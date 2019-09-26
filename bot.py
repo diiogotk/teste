@@ -95,13 +95,23 @@ def bula(txtobula):
         dosecrianca = dosecrianca.replace('_','')
         dosecrianca = dosecrianca.replace('**','*')
         dosecrianca = dosecrianca.replace('* ','')
+        receita1 = p['recipient_type']
+        dosecrianca = html2text.html2text(receita1)
+        receita = receita.replace('\\','')
+        receita = receita.replace('-','')
+        receita = receita.replace('_','')
+        receita = receita.replace('**','*')
+        receita = receita.replace('* ','')
+
+        
 
         if txtobula == nome or txtobula == slug or txtobula == titulo2:
           tit = 'Exibindo bula de *' + titulo2.capitalize()+'*\n'
           indica = '*Indicação*:\n' + indicacao +'\n'
           doseA = '*Dose no adulto*:\n' + doseAdulto
-          doseB = '*Dose Infantil*:\n' + dosecrianca           
-          resultado = tit + indica + doseA + doseB
+          doseB = '*Dose Infantil*:\n' + dosecrianca
+          receitar = '*Tipo de receita*: ' + receita          
+          resultado = tit + receitar + indica + doseA + doseB
 
           return(resultado)
           #print(resultado)
