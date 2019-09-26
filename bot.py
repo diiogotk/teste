@@ -75,7 +75,7 @@ def bulaTodos(txtobula):
         slug = p['slug'].lower()
         titulo2 = p['substance'].lower()
         indicacoes = p['indications']
-        return(substance)
+        return(titulo2)
 
 
 def bula(txtobula):
