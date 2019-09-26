@@ -96,7 +96,7 @@ def bula(txtobula):
         dosecrianca = dosecrianca.replace('**','*')
         dosecrianca = dosecrianca.replace('* ','')
         receita1 = p['recipient_type']
-        dosecrianca = html2text.html2text(receita1)
+        receita = html2text.html2text(receita1)
         receita = receita.replace('\\','')
         receita = receita.replace('-','')
         receita = receita.replace('_','')
