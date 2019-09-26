@@ -6,7 +6,7 @@ import requests
 import os
 with open('data.txt') as json_file:
     data = json.load(json_file)
-with open('bula.txt', encoding="utf-8") as json_file:
+with open('bula2.txt', encoding="utf-8") as json_file:
     datab = json.load(json_file)
 from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
