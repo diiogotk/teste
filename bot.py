@@ -68,7 +68,14 @@ def imc(peso, altura):
         laudoimc = 'indefinido'
         return(laudoimc)
 
-
+def bulaTodos(txtobula):
+    txtobula = txtobula
+    for p in datab['people']:
+        nome = p['name'].lower()
+        slug = p['slug'].lower()
+        titulo2 = p['substance'].lower()
+        indicacoes = p['indications']
+        return(substance)
 
 
 def bula(txtobula):
@@ -218,6 +225,11 @@ def results():
 
     elif action == 'ibuprofenoxarope': ##IBU XAROPE##
         peso = parametros.get('pesoibux')
+        calculo = crockoft(peso)
+        return {'fulfillmentText': calculo}
+
+    elif action == 'bulaTodos': ##IBU XAROPE##
+        peso = "Diogo"
         calculo = crockoft(peso)
         return {'fulfillmentText': calculo}
 
