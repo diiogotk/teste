@@ -84,17 +84,24 @@ def bula(txtobula):
         indicacao = indicacao
         doseAdulto1 = p['dosage_adults']
         doseAdulto = html2text.html2text(doseAdulto1)
-        doseAdulto = doseAdulto.replace('\\','')
+        doseAdulto = doseAdulto.replace('\\n','')
         doseAdulto = doseAdulto.replace('-','')
-        doseAdulto = doseAdulto.replace('**','*')
+        doseAdulto = doseAdulto.replace('**','')
         doseAdulto = doseAdulto.replace('* ','')
+        dosecrianca1 = p['dosage_children']
+        dosecrianca = html2text.html2text(dosecrianca1)
+        dosecrianca = dosecrianca.replace('\\','')
+        dosecrianca = dosecrianca.replace('-','')
+        dosecrianca = dosecrianca.replace('_','')
+        dosecrianca = dosecrianca.replace('**','*')
+        dosecrianca = dosecrianca.replace('* ','')
 
         if txtobula == nome or txtobula == slug or txtobula == titulo2:
           tit = 'Exibindo bula de *' + titulo2.capitalize()+'*\n'
-          indica = '*Indicação*:\n' + indicacao+'\n'
-          doseA = '*Dose no adulto*:\n' +doseAdulto
-          
-          resultado = tit + indica + doseA
+          indica = '*Indicação*:\n' + indicacao +'\n'
+          doseA = '*Dose no adulto*:\n' + doseAdulto
+          doseB = '*Dose Infantil*:\n' + dosecrianca           
+          resultado = tit + indica + doseA + doseB
 
           return(resultado)
           #print(resultado)
