@@ -76,7 +76,6 @@ def bulaTodos(txtobula):
         titulo2 = p['substance'].lower()
         indicacoes = p['indications']
         ret = ret+p
-
     return(ret)
 
 
