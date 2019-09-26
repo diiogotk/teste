@@ -1,8 +1,13 @@
 import json
+import html2text
+import html
+from html.parser import HTMLParser
 import requests  
 import os
 with open('data.txt') as json_file:
     data = json.load(json_file)
+with open('bula.txt', encoding="utf-8") as json_file:
+    datab = json.load(json_file)
 from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
@@ -63,19 +68,46 @@ def imc(peso, altura):
         laudoimc = 'indefinido'
         return(laudoimc)
 
-#IMC CALCULO#
-def bula(txtobula):
-    for p in data['people']:
-        tag01 = p['tag1']
-        tag02 = p['tag2']
-        tag03 = p['tag3']
-        if txtobula == tag01 or txtobula == tag02 or txtobula == tag03:
-            vr1 = p['website']
-            vr2 = p['from']
-            vr3 = p['name']
-            bulaR = 'Bula de ' +vr3+ '\n' ': Indicação: \n' + vr1 + '\n Posologia: ' + vr2
-            return(bulaR)
 
+
+
+def bula(txtobula):
+    for p in datab['people']:
+        #print('Name: ' + p['tags'])
+        nome = p['name'].lower()
+        slug = p['slug'].lower()
+        titulo2 = p['substance'].lower()
+        indicacoes = p['indications']
+        textob = html2text.html2text(indicacoes)
+        textob = textob.replace('\\','')
+        indicacao = textob.replace('-','')
+        indicacao = indicacao
+        doseAdulto1 = p['dosage_adults']
+        doseAdulto = html2text.html2text(doseAdulto1)
+        doseAdulto = doseAdulto.replace('\\','')
+        doseAdulto = doseAdulto.replace('-','')
+        doseAdulto = doseAdulto.replace('**','*')
+        doseAdulto = doseAdulto.replace('* ','')
+
+        if Dqz == nome or Dqz == slug or Dqz == titulo2:
+          resultado = titulo2.capitalize() + '\n' + indicacao+'\n' + doseAdulto
+          return(resultado)
+          #print(resultado)
+          break
+
+#IMC CALCULO#
+#def bula(txtobula):
+#    for p in data['people']:
+#        tag01 = p['tag1']
+#        tag02 = p['tag2']
+#        tag03 = p['tag3']
+#        if txtobula == tag01 or txtobula == tag02 or txtobula == tag03:
+#            vr1 = p['website']
+#            vr2 = p['from']
+#            vr3 = p['name']
+#            bulaR = 'Bula de ' +vr3+ '\n' ': Indicação: \n' + vr1 + '\n Posologia: ' + vr2
+#            return(bulaR)
+########################################
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     name = nome
     website = indicacao
