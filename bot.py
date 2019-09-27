@@ -86,13 +86,17 @@ def bula(txtobula):
         texto1 = p['texto']
         for i in tags:
             if i == txtobula:
-            texto = html2text.html2text(texto1)
-            texto = texto.replace('*  ',' - ') 
-            texto = texto.replace('**','*')
-            if dqz == 1:
-                dqz = dqz+1
-                resultado = '*'+nome+'*\n'+texto
-                return(resultado)
+                texto = html2text.html2text(texto1)
+                texto = texto.replace('*  ',' - ') 
+                texto = texto.replace('**','*')
+                if dqz == 1:
+                    dqz = dqz+1
+                    resultado = '*'+nome+'*\n'+texto
+                    return(resultado)
+                    
+                
+                
+            
             
             
           
