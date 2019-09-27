@@ -12,7 +12,7 @@ from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
 @app.route('/')
 def index():
-    return 'Hello World!'
+    return 'Hello World! OK'
            
         
 # function for responses
