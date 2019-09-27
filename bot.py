@@ -77,17 +77,13 @@ def bulaTodos(txtobula):
         indicacoes = p['indications']
         ret = ret+p
     return(ret)
-
-
 def bula(txtobula):
     txtobula = txtobula
     dqz = 1
     for p in datab['people']:
         nome = p['titulo']
         tags = p['tags'].lower()
-
         texto1 = p['texto']
-
         for i in tags:
           if i == txtobula:
             texto = html2text.html2text(texto1)
