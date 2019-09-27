@@ -79,7 +79,7 @@ def bulaTodos(txtobula):
     return(ret)
 def bula(txtobula):
     txtobula = txtobula.lower()
-    dqz = 1
+    
     for p in datab['people']:
         nome = p['titulo']
         tags = p['tags'].lower()
@@ -92,8 +92,8 @@ def bula(txtobula):
                 texto = html2text.html2text(texto1)
                 texto = texto.replace('*  ',' - ') 
                 texto = texto.replace('**','*')
-                if dqz == 1:
-                    dqz = dqz+1
+                return(titulo + '\n' + texto)
+
             
             
             
