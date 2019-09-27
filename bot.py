@@ -78,11 +78,11 @@ def bulaTodos(txtobula):
         ret = ret+p
     return(ret)
 def bula(txtobula):
-    txtobula = txtobula
+    txtobula = txtobula.lower()
     dqz = 1
     for p in datab['people']:
         nome = p['titulo']
-        tags = p['tags'].lower()
+        tags = p['tags']
         texto1 = p['texto']
         for i in tags:
             if i == txtobula:
