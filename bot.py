@@ -85,10 +85,8 @@ def bula(txtobula):
         tags = p['tags'].lower()
         texto1 = p['texto']
         tags = tags.split(", ")
-
         for i in tags:
-
-            if i == "onfalocele":
+            if i == txtobula or nome == txtobula:
                 texto = html2text.html2text(texto1)
                 texto = texto.replace('*  ',' - ') 
                 texto = texto.replace('**','*')
