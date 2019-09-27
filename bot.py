@@ -90,7 +90,7 @@ def bula(txtobula):
                 texto = html2text.html2text(texto1)
                 texto = texto.replace('*  ',' - ') 
                 texto = texto.replace('**','*')
-                return(titulo + '\n' + texto)
+                return(nome + '\n' + texto)
 
             
             
