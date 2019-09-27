@@ -84,10 +84,10 @@ def bula(txtobula):
     dqz = 1
     for p in datab['people']:
         nome = p['titulo']
-        tags = p['tags']
+        tags = p['tags'].lower()
 
         texto1 = p['texto']
-        tags = tags.split(", ")
+
         for i in tags:
           if i == txtobula:
             texto = html2text.html2text(texto1)
