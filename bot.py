@@ -81,47 +81,31 @@ def bulaTodos(txtobula):
 
 def bula(txtobula):
     txtobula = txtobula
+    dqz = 1
     for p in datab['people']:
-        nome = p['name'].lower()
-        slug = p['slug'].lower()
-        titulo2 = p['substance'].lower()
-        indicacoes = p['indications']
-        textob = html2text.html2text(indicacoes)
-        textob = textob.replace('\\','')
-        indicacao = textob.replace('-','')
-        indicacao = indicacao
-        doseAdulto1 = p['dosage_adults']
-        doseAdulto = html2text.html2text(doseAdulto1)
-        doseAdulto = doseAdulto.replace('\\n','')
-        doseAdulto = doseAdulto.replace('-','')
-        doseAdulto = doseAdulto.replace('**','')
-        doseAdulto = doseAdulto.replace('* ','')
-        dosecrianca1 = p['dosage_children']
-        dosecrianca = html2text.html2text(dosecrianca1)
-        dosecrianca = dosecrianca.replace('\\','')
-        dosecrianca = dosecrianca.replace('-','')
-        dosecrianca = dosecrianca.replace('_','')
-        dosecrianca = dosecrianca.replace('**','*')
-        dosecrianca = dosecrianca.replace('* ','')
-        receita1 = p['recipient_type']
-        receita = html2text.html2text(receita1)
-        receita = receita.replace('\\','')
-        receita = receita.replace('-','')
-        receita = receita.replace('_','')
-        receita = receita.replace('**','*')
-        receita = receita.replace('* ','')
+        nome = p['titulo']
+        tags = p['tags']
+        _id = p['_id']
+        texto1 = p['texto']
+        tags = tags.split(", ")
+        for i in tags:
+          if i == txtobula:
+            texto = html2text.html2text(texto1)
+            texto = texto.replace('*  ',' - ') 
+            texto = texto.replace('**','*')
+            if dqz == 1:
+                dqz = dqz+1
+                resultado = '*'+nome+'*\n'+texto
+                return(resultado)
+                
+              
+            
+              #print(nome)
+              #print(texto)
 
-        
 
-        if txtobula == nome or txtobula == slug or txtobula == titulo2:
-          tit = 'Exibindo bula de *' + titulo2.capitalize()+'*\n'
-          indica = '*Indicação*:\n' + indicacao +'\n'
-          doseA = '*Dose no adulto*:\n' + doseAdulto
-          doseB = '*Dose Infantil*:\n' + dosecrianca
-          receitar = '*Tipo de receita*: ' + receita          
-          resultado = tit + receitar + indica + doseA + doseB
 
-          return(resultado)
+          
           #print(resultado)
 
 
