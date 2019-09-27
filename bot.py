@@ -85,7 +85,7 @@ def bula(txtobula):
         tags = p['tags'].lower()
         texto1 = p['texto']
         for i in tags:
-          if i == txtobula:
+            if i == txtobula:
             texto = html2text.html2text(texto1)
             texto = texto.replace('*  ',' - ') 
             texto = texto.replace('**','*')
@@ -93,6 +93,9 @@ def bula(txtobula):
                 dqz = dqz+1
                 resultado = '*'+nome+'*\n'+texto
                 return(resultado)
+            
+            
+          
 
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     name = nome
