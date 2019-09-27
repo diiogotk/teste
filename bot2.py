@@ -6,7 +6,7 @@ import requests
 import os
 with open('data.txt') as json_file:
     data = json.load(json_file)
-with open('conteudo02.txt', encoding="utf-8") as json_file:
+with open('conteudo06.txt', encoding="utf-8") as json_file:
     datab = json.load(json_file)
 from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
@@ -82,20 +82,18 @@ def bula(txtobula):
     dqz = 1
     for p in datab['people']:
         nome = p['titulo']
-        tags = p['tags']
+        tags = p['tags'].lower()
         texto1 = p['texto']
+        tags = tags.split(", ")
+
         for i in tags:
-            if i == txtobula:
+
+            if i == "onfalocele":
                 texto = html2text.html2text(texto1)
                 texto = texto.replace('*  ',' - ') 
                 texto = texto.replace('**','*')
                 if dqz == 1:
                     dqz = dqz+1
-                    resultado = '*'+nome+'*\n'+texto
-                    return(resultado)
-                    
-                
-                
             
             
             
