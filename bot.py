@@ -6,7 +6,7 @@ import requests
 import os
 with open('data.txt') as json_file:
     data = json.load(json_file)
-with open('bula3.txt', encoding="utf-8") as json_file:
+with open('conteudo02.txt', encoding="utf-8") as json_file:
     datab = json.load(json_file)
 from flask import Flask, request, make_response, jsonify
 app = Flask(__name__)
@@ -85,7 +85,7 @@ def bula(txtobula):
     for p in datab['people']:
         nome = p['titulo']
         tags = p['tags']
-        _id = p['_id']
+
         texto1 = p['texto']
         tags = tags.split(", ")
         for i in tags:
@@ -97,31 +97,7 @@ def bula(txtobula):
                 dqz = dqz+1
                 resultado = '*'+nome+'*\n'+texto
                 return(resultado)
-                
-              
-            
-              #print(nome)
-              #print(texto)
 
-
-
-          
-          #print(resultado)
-
-
-#IMC CALCULO#
-#def bula(txtobula):
-#    for p in data['people']:
-#        tag01 = p['tag1']
-#        tag02 = p['tag2']
-#        tag03 = p['tag3']
-#        if txtobula == tag01 or txtobula == tag02 or txtobula == tag03:
-#            vr1 = p['website']
-#            vr2 = p['from']
-#            vr3 = p['name']
-#            bulaR = 'Bula de ' +vr3+ '\n' ': Indicação: \n' + vr1 + '\n Posologia: ' + vr2
-#            return(bulaR)
-########################################
 def addbula(nome,apresentacao,indicacao,tg1,tg2,tg3):
     name = nome
     website = indicacao
